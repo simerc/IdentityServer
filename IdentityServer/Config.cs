@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using IdentityServer4;
 using IdentityServer4.Models;
@@ -26,13 +27,23 @@ namespace IdentityServer
                 {
                     SubjectId = "1",
                     Username = "alice",
-                    Password = "password"
+                    Password = "password",
+                    Claims = new List<Claim>()
+                    {
+                        new Claim("name", "Alice"),
+                        new Claim("website", "www.alice.com")
+                    }
                 },
                 new TestUser
                 {
                     SubjectId = "2",
                     Username = "bob",
-                    Password = "password"
+                    Password = "password",
+                    Claims = new List<Claim>()
+                    {
+                        new Claim("name", "bobbeth"),
+                        new Claim("website", "www.bobetybobby.com")
+                    }
                 }
             };
         }
